@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font-family: Nunito sans;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  border-bottom: #ddd;
+  border-bottom: 1px solid #eee;
+  transition: 0.3s;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: #555;
+  text-align: center;
+  padding: 20px 16.1px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.navbar a img {
+  top: 0.2rem;
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+}
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+  font-weight: normal;
+}
+/*  Select*/
+
+.select_wrap {
+  z-index: 10;
+  width: 200px;
+  position: relative;
+  user-select: none;
+}
+
+.select_wrap .default_option {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.select_wrap .default_option li {
+  padding: 13px 20px;
+}
+
+.select_wrap .default_option:before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-color: transparent transparent #555555 #555555;
+  transform: rotate(-45deg);
+}
+
+.select_wrap .select_ul {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  display: block;
+}
+
+.select_wrap .select_ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.select_wrap .select_ul li:first-child:hover {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.select_wrap .select_ul li:last-child:hover {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.select_wrap .select_ul li:hover {
+  background: #eee;
+}
+
+.select_wrap .option {
+  display: flex;
+  align-items: center;
+}
+
+.select_wrap.active .select_ul {
+  display: block;
+}
+
+.select_wrap.active .default_option:before {
+  top: 25px;
+  transform: rotate(-225deg);
+}
