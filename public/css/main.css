@@ -110,7 +110,34 @@ body {
   display: block;
 }
 
-.select_wrap.active .default_option:before {
-  top: 25px;
-  transform: rotate(-225deg);
+button {
+  font-size: 0.9rem;
+  border: 0;
+  padding: 7px 10px 7px 40px;
+  margin-top: 20px;
+  color: #555;
+  border-radius: 5px;
+  text-align: right;
+  cursor: pointer;
+}
+.back-btn {
+  text-align: left;
+}
+.back-btn img {
+  display: block;
+  position: absolute;
+  width: 1.8rem;
+  left: 2rem;
+  top: 6.3rem;
+}
+.border-btn {
+  width: 8rem;
+  font-size: 0.9rem;
+  padding: 5px 5px;
+  color: #555;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #eee;
+  margin-left: 0.2rem;
 }

@@ -51,6 +51,12 @@ option {
   position: relative;
   margin-top: 5rem;
 }
+/*country detail*/
+.detail-container {
+  height: auto;
+  margin: 1rem 1.5rem;
+}
+
 .country-flag img {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -62,7 +68,7 @@ option {
   margin: 1rem;
 }
 .country-description p {
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
   padding: 0.3rem 0;
 }
@@ -73,7 +79,50 @@ option {
 .country-description .country-title {
   padding: 1rem 0;
   font-size: 1.2rem;
+  font-weight: 800;
 }
+.detail-flag img {
+  width: 16.8rem;
+  height: 12rem;
+}
+.detail-content {
+  margin-top: 3rem;
+}
+
+.section-one p {
+  padding: 0.3rem 0;
+  font-weight: 600;
+}
+.section-one p span {
+  padding: 0.3rem 0;
+  font-weight: normal;
+}
+.section-one .country-title {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.section-two {
+  margin: 1rem 0;
+}
+.section-two p {
+  padding: 0.3rem 0;
+  font-weight: 600;
+}
+.section-two p span {
+  padding: 0.3rem 0;
+  font-weight: normal;
+}
+/*Border area*/
+.border-title {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.btn-border-container {
+  display: inline-block;
+}
+/*country detail*/
 /*select-container*/
 
 /* Remove extra left and right margins, due to padding */
@@ -94,9 +143,11 @@ option {
 }
 /* Style the counter cards */
 .card {
-  height: 22rem;
-  margin: 0.5rem 1.5rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: auto;
+  min-height: 22rem;
+  margin: 0.5rem 3.1rem;
+  border: 1px solid #eee;
+  border-radius: 5px;
   text-align: center;
   background-color: #f1f1f1;
 }
