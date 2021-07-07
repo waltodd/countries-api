@@ -15,7 +15,7 @@
         <div class="country-description">
           <p class="country-title">{{ country.name }}</p>
           <p>
-            Population: <span>{{ country.population }}</span>
+            Population: <span>{{ formatPopulation(country.population) }}</span>
           </p>
           <p>
             Region: <span>{{ country.region }}</span>
@@ -33,6 +33,11 @@
 export default {
   name: "Card",
   props: ["country"],
+  methods: {
+    formatPopulation(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+  },
 };
 </script>
 

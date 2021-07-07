@@ -6,53 +6,94 @@
 }
 body {
   font-family: Nunito sans;
+  overflow-x: hidden;
 }
+/* For mobile phones: */
+/* =======================================================
+*
+* 	HEADER 
+*
+* ======================================================= */
 
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden;
-  border-bottom: #ddd;
-  border-bottom: 1px solid #eee;
-  transition: 0.3s;
+/* Style the header links */
+.header {
+  top: 0;
+  width: 100%;
+  background-color: var(--element);
+  padding: 20px 15px;
+  position: fixed;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-
-/* Style the navigation bar links */
-.navbar a {
+.header a {
   float: left;
-  display: block;
-  color: #555;
+  color: var(--font-text);
   text-align: center;
-  padding: 20px 16.1px;
+  padding: 5px;
   text-decoration: none;
-  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 1rem;
   font-weight: bold;
 }
-.navbar a img {
-  top: 0.2rem;
+
+/* Float the link section to the right */
+.header-right {
   position: relative;
-  display: inline-block;
-  width: 1rem;
-}
-/* Right-aligned link */
-.navbar a.right {
   float: right;
-  font-weight: normal;
+  display: inline;
+  padding-right: 2rem;
 }
-/*  Select*/
+.header-right input {
+  position: absolute;
+  top: 0.6rem;
+  right: 2.3rem;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+.header-right a {
+  float: left;
+  color: var(--font-text);
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 25px;
+  border-radius: 4px;
+}
+.header-right i {
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transform: rotate(-45deg);
+}
+/* Style the navigation bar links */
+/* =======================================================
+*
+* 	DROPDOWN SELECT
+*
+* ======================================================= */
 
 .select_wrap {
   z-index: 10;
-  width: 200px;
+  width: 180px;
   position: relative;
   user-select: none;
 }
 
 .select_wrap .default_option {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background-color: var(--element);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  color: var(--font-text);
 }
 
 .select_wrap .default_option li {
@@ -64,20 +105,21 @@ body {
   position: absolute;
   top: 18px;
   right: 18px;
-  width: 6px;
-  height: 6px;
+  width: 3px;
+  height: 3px;
   border: 2px solid;
-  border-color: transparent transparent #555555 #555555;
+  border-color: transparent transparent var(--font-text) var(--font-text);
   transform: rotate(-45deg);
 }
 
 .select_wrap .select_ul {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 55px;
   left: 0;
   width: 100%;
-  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: var(--element);
+  color: var(--font-text);
   border-radius: 5px;
   display: block;
 }
@@ -97,47 +139,1557 @@ body {
   border-bottom-right-radius: 5px;
 }
 
-.select_wrap .select_ul li:hover {
-  background: #eee;
-}
-
 .select_wrap .option {
   display: flex;
   align-items: center;
+  font-size: 1rem;
 }
 
 .select_wrap.active .select_ul {
   display: block;
 }
-
+/* =======================================================
+*
+* 	BUTTONS STYLE
+*
+* ======================================================= */
 button {
   font-size: 0.9rem;
   border: 0;
-  padding: 7px 10px 7px 40px;
+  width: 5rem;
+  padding: 7px 50px 7px 45px;
   margin-top: 20px;
-  color: #555;
+  color: var(--font-text);
   border-radius: 5px;
   text-align: right;
   cursor: pointer;
+  background-color: var(--element);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: relative;
+  font-size: 14px;
 }
-.back-btn {
-  text-align: left;
-}
-.back-btn img {
-  display: block;
+button svg {
   position: absolute;
-  width: 1.8rem;
-  left: 2rem;
-  top: 6.3rem;
+  width: 1.2rem;
+  right: 3.5rem;
+  bottom: 0.3rem;
+  color: var(--font-text);
+  background-color: var(--element);
 }
+
 .border-btn {
   width: 8rem;
   font-size: 0.9rem;
   padding: 5px 5px;
-  color: #555;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
-  border: 1px solid #eee;
   margin-left: 0.2rem;
+  color: var(--font-text);
+  background-color: var(--element);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+/* =======================================================
+*
+* 	HOME AREA
+*
+* ======================================================= */
+.home {
+  background-color: var(--background-color);
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+/*section-search-select*/
+.section-search-select {
+  height: 12rem;
+  padding: 5px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin: 0rem 1rem;
+  position: relative;
+  top: 4rem;
+}
+.section-search-select form {
+  position: relative;
+  top: 2rem;
+}
+form {
+  width: 100%;
+  max-width: 790px;
+  margin: 0;
+}
+
+form .inner-form {
+  width: 100%;
+}
+
+form .inner-form .input-field {
+  position: relative;
+}
+
+form .inner-form .input-field input {
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: var(--element);
+  display: block;
+  width: 100%;
+  padding: 10px 30px 10px 70px;
+  font-size: 14px;
+  color: #666;
+  border-radius: 5px;
+  height: 3rem;
+  color: var(--font-text);
+}
+
+form .inner-form .input-field input.placeholder {
+  color: var(--font-text);
+  font-size: 18px;
+}
+
+form .inner-form .input-field input:-moz-placeholder {
+  color: var(--font-text);
+  font-size: 18px;
+}
+
+form .inner-form .input-field input::-webkit-input-placeholder {
+  color: var(--font-text);
+  font-size: 18px;
+}
+
+form .inner-form .input-field input:hover,
+form .inner-form .input-field input:focus {
+  outline: 0;
+}
+
+form .inner-form .basic-search .input-field {
+  width: 100%;
+}
+
+form .inner-form .basic-search .input-field input {
+  padding: 10px 50px 10px 40px;
+}
+
+form .inner-form .basic-search .input-field .icon-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 35px;
+  height: 100%;
+}
+
+form .inner-form .basic-search .input-field .icon-wrap svg {
+  width: 23px;
+  height: 23px;
+  color: var(--font-text);
+}
+svg path {
+  fill: var(--font-text);
+}
+
+/*end*/
+/* =======================================================
+*
+* 	INPUT  
+*
+* ======================================================= */
+input {
+  font-size: 14px;
+  display: block;
+  padding: 15px 10px 15px 45px;
+  width: 100%;
+  box-sizing: border-box;
+  color: hsl(0, 0%, 52%);
+  border-radius: 5px;
+  outline: none;
+}
+
+select {
+  font-size: 14px;
+  position: relative;
+  width: 60rem;
+  padding: 18px 10px 18px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--font-text);
+  border-radius: 5px;
+}
+select,
+option {
+  position: relative;
+  margin-top: 1rem;
+}
+.card-container {
+  position: relative;
+  margin-top: 4rem;
+}
+/* =======================================================
+*
+* COUNTRY DETAIL AREA
+*
+* ======================================================= */
+/*country detail*/
+
+.detail-container {
+  position: relative;
+  top: 3.5rem;
+  height: auto;
+  background-color: var(--background-color);
+}
+.container {
+  margin: 1rem 1.5rem;
+}
+
+.country-flag img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 9.5rem;
+  cursor: pointer;
+}
+.country-description {
+  margin: 1rem;
+}
+.country-description p {
+  font-weight: 600;
+  text-align: left;
+  padding: 0.3rem 0;
+  color: var(--font-text);
+}
+.country-description p span {
+  font-weight: normal;
+  color: var(--font-text);
+}
+.country-description .country-title {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--font-text);
+}
+.detail-flag img {
+  width: 16.8rem;
+  height: 12rem;
+}
+.detail-content {
+  margin-top: 3rem;
+}
+
+.section-one p {
+  padding: 0.3rem 0;
+  font-weight: 600;
+  color: var(--font-text);
+}
+.section-one p span {
+  padding: 0.3rem 0;
+  font-weight: normal;
+}
+.section-one .country-title {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--font-text);
+}
+.section-two {
+  margin: 1rem 0;
+}
+.section-two p {
+  padding: 0.3rem 0;
+  font-weight: 600;
+  color: var(--font-text);
+}
+.section-two p span {
+  padding: 0.3rem 0;
+  font-weight: normal;
+}
+/*Border area*/
+.border-title {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--font-text);
+}
+.btn-border-container {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+/*country detail*/
+/*select-container*/
+/* =======================================================
+*
+* 	CARDS AREA STYLE
+*
+* ======================================================= */
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+/* Style the counter cards */
+.card {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  height: auto;
+  min-height: 22rem;
+  margin: 0.5rem 3.5rem;
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--element);
+}
+/* LOADING*/
+/* =======================================================
+*
+* 	LOADING SPINNER STYLE
+*
+* ======================================================= */
+.home .loading-container {
+  position: relative;
+}
+.loading-container {
+  top: 8rem;
+  left: 4rem;
+  width: 5rem;
+  margin: 0rem 3rem;
+  position: absolute;
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--font-text);
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/**/
+/* =======================================================
+*
+* 	FOR TABLETS
+*
+* ======================================================= */
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  /* Style the header links */
+  .header {
+    top: 0;
+    width: 100%;
+    background-color: var(--element);
+    padding: 20px 50px;
+    position: fixed;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .header a {
+    float: left;
+    color: var(--font-text);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  /* Float the link section to the right */
+  .header-right {
+    position: relative;
+    float: right;
+    display: inline;
+    padding-right: 7rem;
+  }
+  .header-right input {
+    position: absolute;
+    top: 0.6rem;
+    right: 2.3rem;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0;
+  }
+  .header-right a {
+    float: left;
+    color: var(--font-text);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  .header-right i {
+    cursor: pointer;
+    margin-right: 0.3rem;
+    transform: rotate(-45deg);
+  }
+  /* Style the navigation bar links */
+  /* =======================================================
+*
+* 	DROPDOWN SELECT
+*
+* ======================================================= */
+
+  .select_wrap {
+    z-index: 10;
+    width: 180px;
+    position: relative;
+    user-select: none;
+  }
+
+  .select_wrap .default_option {
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    color: var(--font-text);
+  }
+
+  .select_wrap .default_option li {
+    padding: 13px 20px;
+  }
+
+  .select_wrap .default_option:before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 3px;
+    height: 3px;
+    border: 2px solid;
+    border-color: transparent transparent var(--font-text) var(--font-text);
+    transform: rotate(-45deg);
+  }
+
+  .select_wrap .select_ul {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--element);
+    color: var(--font-text);
+    border-radius: 5px;
+    display: block;
+  }
+
+  .select_wrap .select_ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .select_wrap .select_ul li:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .select_wrap .select_ul li:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .select_wrap .option {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .select_wrap.active .select_ul {
+    display: block;
+  }
+  /* =======================================================
+*
+* 	BUTTONS STYLE
+*
+* ======================================================= */
+  button {
+    font-size: 0.9rem;
+    border: 0;
+    width: 5rem;
+    padding: 7px 50px 7px 45px;
+    margin-top: 20px;
+    color: var(--font-text);
+    border-radius: 5px;
+    text-align: right;
+    cursor: pointer;
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: relative;
+    font-size: 14px;
+  }
+  button svg {
+    position: absolute;
+    width: 1.2rem;
+    right: 3.5rem;
+    bottom: 0.3rem;
+    color: var(--font-text);
+    background-color: var(--element);
+  }
+
+  .border-btn {
+    width: 8rem;
+    font-size: 0.9rem;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 0.2rem;
+    color: var(--font-text);
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  /* =======================================================
+*
+* 	HOME AREA
+*
+* ======================================================= */
+  .home {
+    background-color: var(--background-color);
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: hidden;
+  }
+  /*section-search-select*/
+  .section-search-select {
+    height: 8rem;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-gap: 2rem;
+    margin: 0rem 3rem;
+    position: relative;
+    top: 4rem;
+  }
+  .section-search-select form {
+    position: relative;
+    top: 2rem;
+  }
+  .section-search-select .select_wrap {
+    position: relative;
+    top: 2rem;
+    left: 3.3rem;
+  }
+  form {
+    width: 100%;
+    max-width: 790px;
+    margin: 0;
+  }
+
+  form .inner-form {
+    width: 100%;
+  }
+
+  form .inner-form .input-field {
+    position: relative;
+  }
+
+  form .inner-form .input-field input {
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--element);
+    display: block;
+    width: 100%;
+    padding: 10px 30px 10px 70px;
+    font-size: 14px;
+    color: #666;
+    border-radius: 5px;
+    height: 3rem;
+    color: var(--font-text);
+  }
+
+  form .inner-form .input-field input.placeholder {
+    color: var(--font-text);
+    font-size: 14px;
+  }
+
+  form .inner-form .input-field input:-moz-placeholder {
+    color: var(--font-text);
+    font-size: 14px;
+  }
+
+  form .inner-form .input-field input::-webkit-input-placeholder {
+    color: var(--font-text);
+    font-size: 18px;
+  }
+
+  form .inner-form .input-field input:hover,
+  form .inner-form .input-field input:focus {
+    outline: 0;
+  }
+
+  form .inner-form .basic-search .input-field {
+    width: 60%;
+  }
+
+  form .inner-form .basic-search .input-field input {
+    padding: 10px 10px 10px 40.3px;
+  }
+
+  form .inner-form .basic-search .input-field .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 35px;
+    height: 100%;
+  }
+
+  form .inner-form .basic-search .input-field .icon-wrap svg {
+    width: 23px;
+    height: 23px;
+    color: var(--font-text);
+  }
+  svg path {
+    fill: var(--font-text);
+  }
+
+  /*end*/
+  /* =======================================================
+*
+* 	INPUT  
+*
+* ======================================================= */
+  input {
+    font-size: 14px;
+    display: block;
+    padding: 15px 10px 15px 45px;
+    width: 100%;
+    box-sizing: border-box;
+    color: hsl(0, 0%, 52%);
+    border-radius: 5px;
+    outline: none;
+  }
+
+  select {
+    font-size: 14px;
+    position: relative;
+    width: 60rem;
+    padding: 18px 10px 18px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--font-text);
+    border-radius: 5px;
+  }
+  select,
+  option {
+    position: relative;
+    margin-top: 1rem;
+  }
+  .card-container {
+    position: relative;
+    margin: 4rem 3rem 5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* =======================================================
+*
+* COUNTRY DETAIL AREA
+*
+* ======================================================= */
+  /*country detail*/
+
+  .detail-container {
+    position: relative;
+    min-height: 120vh;
+    background-color: var(--background-color);
+    padding: 0rem 2rem;
+  }
+  .detail-content {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+  .btn-container {
+    position: relative;
+    top: 2rem;
+  }
+
+  .country-flag img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 9.5rem;
+    cursor: pointer;
+  }
+  .country-description {
+    margin: 1rem;
+  }
+  .country-description p {
+    font-weight: 600;
+    text-align: left;
+    padding: 0.3rem 0;
+    color: var(--font-text);
+  }
+  .country-description p span {
+    font-weight: normal;
+    color: var(--font-text);
+  }
+  .country-description .country-title {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--font-text);
+  }
+  .detail-flag img {
+    width: 20rem;
+    height: 100%;
+  }
+  .section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section-one p {
+    padding: 0.3rem 0;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+  .section-one p span {
+    padding: 0.3rem 0;
+    font-weight: normal;
+  }
+  .section-one .country-title {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--font-text);
+  }
+  .section-two {
+    padding-top: 2.5rem;
+  }
+  .section-two p {
+    padding: 0.3rem 0;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+  .section-two p span {
+    padding: 0.3rem 0;
+    font-weight: normal;
+  }
+  .border-container {
+    display: inline-block;
+    position: relative;
+    top: 1rem;
+  }
+  .btn-border-container {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /*Border area*/
+  .border-title {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+
+  /*country detail*/
+  /*select-container*/
+  /* =======================================================
+*
+* 	CARDS AREA STYLE
+*
+* ======================================================= */
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0 -5px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  /* Style the counter cards */
+  .card {
+    margin: 0.5rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: auto;
+    min-height: 22rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--element);
+  }
+  /* LOADING*/
+  /* =======================================================
+*
+* 	LOADING SPINNER STYLE
+*
+* ======================================================= */
+  .home .loading-container {
+    position: relative;
+  }
+  .loading-container {
+    top: 12rem;
+    left: 22rem;
+    width: 5rem;
+    margin: 0rem 3rem;
+    position: absolute;
+  }
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--font-text);
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+/* =======================================================
+*
+* 	FOR DESKTOP
+*
+* ======================================================= */
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  /* Style the header links */
+  .header {
+    top: 0;
+    width: 100%;
+    background-color: var(--element);
+    padding: 20px 50px;
+    position: fixed;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .header a {
+    float: left;
+    color: var(--font-text);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  /* Float the link section to the right */
+  .header-right {
+    position: relative;
+    float: right;
+    display: inline;
+    padding-right: 10rem;
+  }
+  .header-right input {
+    position: absolute;
+    top: 0.6rem;
+    right: 2.3rem;
+    z-index: 1;
+    cursor: pointer;
+    opacity: 0;
+  }
+  .header-right a {
+    float: left;
+    color: var(--font-text);
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  .header-right i {
+    cursor: pointer;
+    margin-right: 0.3rem;
+    transform: rotate(-45deg);
+  }
+  /* Style the navigation bar links */
+  /* =======================================================
+*
+* 	DROPDOWN SELECT
+*
+* ======================================================= */
+
+  .select_wrap {
+    z-index: 10;
+    width: 180px;
+    position: relative;
+    user-select: none;
+  }
+
+  .select_wrap .default_option {
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    color: var(--font-text);
+  }
+
+  .select_wrap .default_option li {
+    padding: 13px 20px;
+  }
+
+  .select_wrap .default_option:before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 3px;
+    height: 3px;
+    border: 2px solid;
+    border-color: transparent transparent var(--font-text) var(--font-text);
+    transform: rotate(-45deg);
+  }
+
+  .select_wrap .select_ul {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--element);
+    color: var(--font-text);
+    border-radius: 5px;
+    display: block;
+  }
+
+  .select_wrap .select_ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .select_wrap .select_ul li:first-child:hover {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .select_wrap .select_ul li:last-child:hover {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .select_wrap .option {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+
+  .select_wrap.active .select_ul {
+    display: block;
+  }
+  /* =======================================================
+*
+* 	BUTTONS STYLE
+*
+* ======================================================= */
+  button {
+    font-size: 0.9rem;
+    border: 0;
+    width: 5rem;
+    padding: 7px 50px 7px 45px;
+    margin-top: 20px;
+    color: var(--font-text);
+    border-radius: 5px;
+    text-align: right;
+    cursor: pointer;
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: relative;
+    font-size: 14px;
+  }
+  button svg {
+    position: absolute;
+    width: 1.2rem;
+    right: 3.5rem;
+    bottom: 0.3rem;
+    color: var(--font-text);
+    background-color: var(--element);
+  }
+
+  .border-btn {
+    width: 8rem;
+    font-size: 0.9rem;
+    padding: 5px 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 0.2rem;
+    color: var(--font-text);
+    background-color: var(--element);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  /* =======================================================
+*
+* 	HOME AREA
+*
+* ======================================================= */
+  .home {
+    background-color: var(--background-color);
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: hidden;
+  }
+  /*section-search-select*/
+  .section-search-select {
+    height: 8rem;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 0.8fr 0.5fr;
+    grid-gap: 2rem;
+    margin: 0rem 4rem;
+    position: relative;
+    top: 4rem;
+  }
+  .section-search-select form {
+    position: relative;
+    top: 2rem;
+  }
+  .section-search-select .select_wrap {
+    position: relative;
+    top: 2rem;
+    left: 14rem;
+  }
+  form {
+    width: 100%;
+    max-width: 790px;
+    margin: 0;
+  }
+
+  form .inner-form {
+    width: 100%;
+  }
+
+  form .inner-form .input-field {
+    position: relative;
+  }
+
+  form .inner-form .input-field input {
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: var(--element);
+    display: block;
+    width: 100%;
+    padding: 10px 30px 10px 70px;
+    font-size: 14px;
+    color: #666;
+    border-radius: 5px;
+    height: 3rem;
+    color: var(--font-text);
+  }
+
+  form .inner-form .input-field input.placeholder {
+    color: var(--font-text);
+    font-size: 14px;
+  }
+
+  form .inner-form .input-field input:-moz-placeholder {
+    color: var(--font-text);
+    font-size: 14px;
+  }
+
+  form .inner-form .input-field input::-webkit-input-placeholder {
+    color: var(--font-text);
+    font-size: 18px;
+  }
+
+  form .inner-form .input-field input:hover,
+  form .inner-form .input-field input:focus {
+    outline: 0;
+  }
+
+  form .inner-form .basic-search .input-field {
+    width: 60%;
+  }
+
+  form .inner-form .basic-search .input-field input {
+    padding: 10px 10px 10px 40.3px;
+  }
+
+  form .inner-form .basic-search .input-field .icon-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 35px;
+    height: 100%;
+  }
+
+  form .inner-form .basic-search .input-field .icon-wrap svg {
+    width: 23px;
+    height: 23px;
+    color: var(--font-text);
+  }
+  svg path {
+    fill: var(--font-text);
+  }
+
+  /*end*/
+  /* =======================================================
+*
+* 	INPUT  
+*
+* ======================================================= */
+  input {
+    font-size: 14px;
+    display: block;
+    padding: 15px 10px 15px 45px;
+    width: 100%;
+    box-sizing: border-box;
+    color: hsl(0, 0%, 52%);
+    border-radius: 5px;
+    outline: none;
+  }
+
+  select {
+    font-size: 14px;
+    position: relative;
+    width: 60rem;
+    padding: 18px 10px 18px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--font-text);
+    border-radius: 5px;
+  }
+  select,
+  option {
+    position: relative;
+    margin-top: 1rem;
+  }
+  .card-container {
+    position: relative;
+    margin: 4rem 3rem 5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* =======================================================
+*
+* COUNTRY DETAIL AREA
+*
+* ======================================================= */
+  /*country detail*/
+
+  .detail-container {
+    position: relative;
+    height: auto;
+    background-color: var(--background-color);
+    padding: 0rem 2rem;
+  }
+  .detail-content {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-gap: 2rem;
+  }
+  .btn-container {
+    position: relative;
+    top: 2rem;
+  }
+
+  .country-flag img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 9.5rem;
+    cursor: pointer;
+  }
+  .country-description {
+    margin: 1rem;
+  }
+  .country-description p {
+    font-weight: 600;
+    text-align: left;
+    padding: 0.3rem 0;
+    color: var(--font-text);
+  }
+  .country-description p span {
+    font-weight: normal;
+    color: var(--font-text);
+  }
+  .country-description .country-title {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--font-text);
+  }
+  .detail-flag img {
+    width: 100%;
+    height: 100%;
+  }
+  .section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section-one p {
+    padding: 0.3rem 0;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+  .section-one p span {
+    padding: 0.3rem 0;
+    font-weight: normal;
+  }
+  .section-one .country-title {
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--font-text);
+  }
+  .section-two {
+    padding-top: 2.5rem;
+  }
+  .section-two p {
+    padding: 0.3rem 0;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+  .section-two p span {
+    padding: 0.3rem 0;
+    font-weight: normal;
+  }
+  .border-container {
+    display: block;
+    position: absolute;
+    left: 39rem;
+    top: 25rem;
+  }
+  .btn-border-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  /*Border area*/
+  .border-title {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--font-text);
+  }
+
+  /*country detail*/
+  /*select-container*/
+  /* =======================================================
+*
+* 	CARDS AREA STYLE
+*
+* ======================================================= */
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0 -5px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  /* Style the counter cards */
+  .card {
+    width: 15rem;
+    margin: 0.5rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    height: auto;
+    min-height: 22rem;
+    border-radius: 5px;
+    text-align: center;
+    background-color: var(--element);
+  }
+  /* LOADING*/
+  /* =======================================================
+*
+* 	LOADING SPINNER STYLE
+*
+* ======================================================= */
+  .home .loading-container {
+    position: relative;
+  }
+  .loading-container {
+    top: 12rem;
+    left: 35rem;
+    width: 5rem;
+    margin: 0rem 3rem;
+    position: absolute;
+  }
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--font-text);
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

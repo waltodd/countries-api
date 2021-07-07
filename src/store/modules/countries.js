@@ -10,6 +10,7 @@ const state = {
     { value: "europe", text: "Europe" },
     { value: "ocean", text: "Oceania" },
   ],
+  loading: true,
 };
 
 const getters = {
@@ -17,9 +18,11 @@ const getters = {
   singleCountry: (state) => state.country,
   bordersCountry: (state) => state.borders,
   AllRegions: (state) => state.regions,
+  spinner: (state) => state.loading,
 };
 const actions = {
-  async fetchCountries({ commit }) {
+  async fetchCountries({ commit, state }) {
+    state.loading = true;
     try {
       //fetch data from url endpoint
       const response = await http.get("/all");
@@ -27,6 +30,7 @@ const actions = {
       //console.log(data);
       // handle success
       commit("SET_COUNTRIES", data);
+      state.loading = false;
       return data;
     } catch (error) {
       console.log(error);
